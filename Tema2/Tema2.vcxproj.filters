@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="lab_shader_loader.cpp" />
+    <ClCompile Include="lab_texture_loader.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="ParticleSystem.cpp" />
+    <ClCompile Include="DynamicCubemap.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="lab_camera.hpp" />
+    <ClInclude Include="lab_geometry.hpp" />
+    <ClInclude Include="lab_glut_support.hpp" />
+    <ClInclude Include="lab_mesh_loader.hpp" />
+    <ClInclude Include="lab_shader_loader.hpp" />
+    <ClInclude Include="lab_glut.hpp" />
+    <ClInclude Include="lab_texture_loader.hpp" />
+    <ClInclude Include="ParticleSystem.h" />
+    <ClInclude Include="DynamicCubemap.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="shadere\normal_fragment.glsl">
+      <Filter>Shadere</Filter>
+    </None>
+    <None Include="shadere\normal_vertex.glsl">
+      <Filter>Shadere</Filter>
+    </None>
+    <None Include="shadere\cubemap_fragment.glsl">
+      <Filter>Shadere</Filter>
+    </None>
+    <None Include="shadere\cubemap_vertex.glsl">
+      <Filter>Shadere</Filter>
+    </None>
+    <None Include="shadere\particle_render_vertex.glsl">
+      <Filter>Shadere</Filter>
+    </None>
+    <None Include="shadere\particle_render_geometry.glsl">
+      <Filter>Shadere</Filter>
+    </None>
+    <None Include="shadere\particle_render_fragment.glsl">
+      <Filter>Shadere</Filter>
+    </None>
+    <None Include="shadere\particle_compute.glsl">
+      <Filter>Shadere</Filter>
+    </None>
+    <None Include="shadere\building_vertex.glsl">
+      <Filter>Shadere</Filter>
+    </None>
+    <None Include="shadere\building_fragment.glsl">
+      <Filter>Shadere</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Shadere">
+      <UniqueIdentifier>{1f45d49d-da79-4fb2-98de-f420bf6b07b9}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,19 @@
+README TEMA3 SPG
+
+Nume: Datcu Andrei Daniel
+Grupa: 342C1
+
+1. Cerinta
+
+Diferite operatii de image processing
+
+2. Utilizare
+
+Se incarca imaginea. Orice pas poate fi aplicat fie pe imaginea de la pasul anterior (daca acesta a fost executat) fie pe imaginea abia incarcata
+
+imaginea TREBUIE sa aibe o bordura de minim 5 pixeli in jurul sau pentru ca programul sa functioneze
+
+Pe imaginile de test am folosit sigma=0.9 la blurarea de dinaintea edge detection. Aceata valoare trebuie schimbata din cod daca este nevoie (Canny.cpp)
+Pentru scheletizare sunt 2 metode ale clase Image: thin si thin_std. thin_std este implementarea din curs a algoritmului de subtierei in doi pasi. Acesta
+nu este deloc sensibil la extremitati, si deci scheletul arata mai bine, dar nu este corect. thin, este o alta implementare a unui algoritm de subtiere,
+care este mai sensibila la extermitati.

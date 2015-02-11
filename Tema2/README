@@ -1,0 +1,56 @@
+README TEMA2 SPG
+
+Nume: Datcu Andrei Daniel
+Grupa: 342C1
+
+1. Cerinta
+
+Scena cu o cladire ce reflecta un cubemap + particule
+
+2. Utilizare
+
+Arhiva contine o solutie MSVC 2012. Aplicatia poate fi rulata in modul debug.
+Singura interactiune intre user si aplicatie se face prin intermediul tastelor
+
+
+W A S D Q W R F - misca pozitia camerei
+
+NOTA:
+ La mine pe calculator, pornirea dureaza ~20 de secunde
+ Nu se poate face full screen din cauza modului in care contruiesc eu cubemapul si pentru
+ ca nu reusesc sa inteleg cum lucreaza GLUT in totalitate. Se poate maximiza fereastra insa si mere ok.
+
+3. Implementare
+
+Platforma: Windows 7
+IDE Folosit: Microsoft Visual Studio 2012 Ultimate v 11.0.50727.1 RTMREL
+Compilator: MSVC 2012 (vezi IDE)
+
+Dependente:
+	FreeGlut
+	GLEW
+
+Sistemul de particule este implementat in clasa ParticleSystem. Updatarea si randarea se fac separat.
+Updatarea se face prin intermediul unui Compute Shader. Randarea se face sub forma de billboarduri care sunt create
+in geometry shader. Textura incarcata este un rgb normal si prin intermediul blendului se creaza transparenta.
+Se verifica de fiecare data daca picaturile intra intr-un cilindru care inconjoara cladirea
+
+Cladirea este compusa din doua obiecte: partea nereflectanta si partea reflectanta.
+
+In scena se mai afla un cub pe care se mapeaza o textura tip cubemap (ca in laborator)
+
+Reflexia: Se reflecta doar un cubemap creat dinamic intr-un frame buffer.
+
+Cubemap dinamic: Se creaza un framebuffer pe care se mapeaza o textura tip cubemap (dimensiunile sunt 1024x1024 ca textura cubemap statica)
+Se pune in scena cubul pe care se mapeaza textura cubemap statica. Se deseneaza si particulele.
+Apoi voi desena din 6 pozitii noua scena (de fiecare data voi randa intr-o
+alta fata a cubemapului dinamic). Voi randa din centrul cubului, iar matricea de proiectie este facuta cu o deschidere de 90 de grade astfel incat
+mereu voi prinde o singrua fata.
+
+Dupa obtinerea cubemapului dinamic, desenez din nou cubul (din nou cu textura cubemap simpla, statica incarcata din fisier) si particulele in
+framebufferul 0. Urmeaza partea cladirii care nu reflecta, apoi geamurile. La geamuri voi mapa pe cubemap textura dinamica obtinuta la inceputul
+pasului de randare.
+
+Bonus:
+	Reflexiile particulelor sunt corecte :)
+	Cladirea are un aspect original

@@ -1,0 +1,115 @@
+README TEMA1 SPG
+
+Nume: Datcu Andrei Daniel
+Grupa: 342C1
+
+1. Cerinta
+
+Un joc de racetrack
+
+2. Utilizare
+
+Arhiva contine o solutie MSVC 2012. Aplicatia poate fi rulata in modul debug.
+Singura interactiune intre user si aplicatie se face prin intermediul tastelor
+
+SUS, STANGA, DREAPTA - miscarea masinii
+
+W - Activeaza wireframe
+C - Activeaza camera TPS spate a masinii
+T - Activeaza camera FPS de deasupra pistei
+I,J,K,L - translateaza camera FPS de deasupra pistei inainte/inapoi stanga dreapta
+O, P - translateaza camera FPS de deasupra pistei sus/jos
+[,] - rotatie ox camera FPS de deasupra pistei
+;,' -rotatie oy camera FPS de deasupra pistei
+.,/ -rotatie oz camera FPS de deasupra pistei 
+
+NOTA:
+ La mine pe calculator, pornirea dureaza ~20 de secunde
+
+
+3. Implementare
+
+Platforma: Windows 7
+IDE Folosit: Microsoft Visual Studio 2012 Ultimate v 11.0.50727.1 RTMREL
+Compilator: MSVC 2012 (vezi IDE)
+
+Dependente:
+	FreeGlut
+	GLEW
+	Assimp - Pentru incarcarea de modele
+	DevIL - Pentru incarcarea texturilor din imagini aflate pe disc (png, tga)
+
+
+Modificarile aduse de mine acestui schelet sunt:
+	- Am externalizat clasa MainWindow (corespunzatoare clasei Laborator)
+	- Am separat implementarea de declararea lab_glut.
+	
+Pista este desenata folosind o inlantuire de splineuri Catmull-Rom. Grosimea ei
+este realizata in GeometryShader, folosind derivata in fiecare punct desenat al
+splineului.
+	
+	
+TOATE formele desenate pe ecran sunt la baza Mesh. Mesh este o clasa ce inglobeaza
+ un vao, un ibo si maxim 3 vbo-uri(pozitii, normale si coordonate in textura).
+ O Mesha poate avea o singura textura/material. De aceea un obiect (Object3D)
+ va fi practic o serie de Meshe. O masina (Car) este un Object3D care aduce in plus
+ 3 camere (TPS Spate, TPS Lateral si FPS, translatate si rotite corespunzator la fiecare miscare)
+ 
+ Totodata, un atlet are viteza culoare (pentru generarea texturii steagurilor din final) precum
+ si un Obiect3D - asociat camerei TPS Lateral si care este translatat o data cu camera si randat
+ o data cu atletul.
+ 
+ Un Object3D se poate construi doar dintr-o cale de fisier .obj. Acesta este incarcat cu assimp.
+ Assimp se ocupa si de impartirea in mese, iar apoi pentru fiecare mesa assimp construiesc un Mesh.
+
++--Object3D----+Car
+
+	Un Car se poate misca in doua moduri:
+		
+		apeland metoda moveForward(): miscare manuala, jucatorul se misca in fata dupa directia unghiului actual
+		apeland metoda autoMove(): miscare automata : Daca este pe linie dreapta se translateaza in fata, altfel:
+			Se calculeaza viteza unghiulara pentru ca, respectand viteza liniara sa se faca o rotatie de pi pana
+			se va ajunge in punctul diametral opus al terenului.
+	
+	
+	Bonusuri:
+		- Scena realista
+		- Generarea pistei pe GeometryShader
+		
+	OBSERVATIE:
+	     Niciun obiect din cele folosite in tema nu-mi aparatin. Ele au fost descarcate de pe tf3dm.com si de pe turbosquid.com
+5. Continutul arhivei:
+		./Tema4
+		|	|
+		|	Object3D.cpp/h clasa Object3D
+		|	|
+		|	+Mesh.cpp/h clasa Mesh
+		|	|
+		|   +Car.cpp/h clasa Car
+		|   |
+		|   +MainWindow.cpp/h clasa MainWindows care controleaza practic jocul
+		|   |
+		|	+restul fisierelor din scheletul de laboraor
+		|   |
+		|   |
+		|   +./dependente (folderul unde se gasesc .h .lib si .dll pentru fiecare dependenta)
+		|	|	|
+		|	|	+ assimp
+		|   |   |
+		|   |   + freeglut
+		|   |   |
+		|   |   + glew
+		|   |   |
+		|   |   + glm
+		|   |   |
+		|   |   + IL
+		|	|
+		|   +./shadere
+		|   |   |
+		|   |   + cele doua seturi de shadere (vertex si frag pentru scena, respectiv steaguri)
+		|	|
+		|   +./resurse
+		|   |   |
+		|   |   + toate modele si texturile
+		|
+		README

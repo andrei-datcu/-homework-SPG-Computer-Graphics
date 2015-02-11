@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="lab_glut.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="MainWindow.cpp" />
+    <ClCompile Include="Mesh.cpp" />
+    <ClCompile Include="Object3D.cpp" />
+    <ClCompile Include="RaceTrack.cpp" />
+    <ClCompile Include="CatmullSpline.cpp" />
+    <ClCompile Include="CatmullTrack.cpp" />
+    <ClCompile Include="Car.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="lab_camera.hpp" />
+    <ClInclude Include="lab_glut_support.hpp" />
+    <ClInclude Include="lab_glut.hpp" />
+    <ClInclude Include="MainWindow.h" />
+    <ClInclude Include="Mesh.h" />
+    <ClInclude Include="Object3D.h" />
+    <ClInclude Include="lab_shader_loader.hpp" />
+    <ClInclude Include="RaceTrack.h" />
+    <ClInclude Include="CatmullSpline.h" />
+    <ClInclude Include="CatmullTrack.h" />
+    <ClInclude Include="Car.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="shadere\shader_fragment.glsl">
+      <Filter>shadere</Filter>
+    </None>
+    <None Include="shadere\shader_vertex.glsl">
+      <Filter>shadere</Filter>
+    </None>
+    <None Include="shadere\shader_flag_fragment.glsl">
+      <Filter>shadere</Filter>
+    </None>
+    <None Include="shadere\shader_flag_vertex.glsl">
+      <Filter>shadere</Filter>
+    </None>
+    <None Include="shadere\track_fragment.glsl">
+      <Filter>shadere</Filter>
+    </None>
+    <None Include="shadere\track_vertex.glsl">
+      <Filter>shadere</Filter>
+    </None>
+    <None Include="shadere\track_geometry.glsl">
+      <Filter>shadere</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="shadere">
+      <UniqueIdentifier>{85857cd0-0cc3-4e79-8578-ea2e16cc1d74}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
